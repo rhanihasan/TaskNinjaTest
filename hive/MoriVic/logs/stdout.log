@@ -1,0 +1,26 @@
+CONTRIBUTING.md
+Dockerfile
+LICENSE
+README.md
+Task-Ninja
+app.py
+go.mod
+go.sum
+hive
+main.go
+nmap_test.py
+pkg
+requirements.txt
+scripts
+shared
+task.yaml
+tasks.yaml
+test.py
+HEELLLLOO
+Script Name: /hive/in/test.py
+Arguments Passed:
+  Argument 1: /hive/out/test_results.txt
+Hello, World!
+QuVzwE2PaaucDP0pGEJ1098kaz1QkcQZ
+tesla.com
+Saved arguments to /hive/out/test_args_results.txt

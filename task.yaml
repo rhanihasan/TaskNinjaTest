@@ -1,0 +1,45 @@
+config:
+  name: "FumbleSec"
+  author: "Hassan Rhani"
+  usage: "./Task-Ninja -w tasks.yaml -v api_key=YOUR_SHODAN_API_KEY,domain=example.com"
+  defaultimage: "fumblesec"
+  logs: true
+  silent: false
+
+vars:
+  api_key: ""
+  domain: ""
+
+tasks:
+  - name: "MoriVic"
+    logs: true
+    image: "fumblesec"
+    silent: false
+    stoponerr: true
+
+
+    inputs: 
+
+      - "shodan_query.py"
+      - "nmap_task.py"  #  Include nmap script
+      - "nuclei_task.py"
+    cmds: 
+#      - "ls "
+#      - "cat {{hivein}}/hello.txt  "
+#      - "python3 {{hivein}}/test.py {{hiveout}}/test_results.txt"
+#      - "pip install shodan"
+#      - "python {{hivein}}/shodan_query.py {{hiveout}}/shodan_results.txt"
+      - "echo  '{{api_key}}'"
+      - "echo  '{{domain}}'"
+      - "python3 {{hivein}}/shodan_query.py -a '{{api_key}}' -d '{{domain}}'  {{hiveout}}/shodan_results.txt"
+#  Run Nmap using the Shodan results
+      - "python3 {{hivein}}/nmap_task.py {{hiveout}}/shodan_results.txt {{hiveout}}/nmap_results.txt"
+# Nuclei Scan
+      - "python3 {{hivein}}/nuclei_task.py {{hiveout}}/nmap_results.txt {{hiveout}}/nuclei_results.txt"
+    outputs:
+      - "{{hiveout}}/shodan_results.txt"
+      - "{{hiveout}}/nmap_results.txt"
+      - "{{hiveout}}/nuclei_results.txt"
+
+
+

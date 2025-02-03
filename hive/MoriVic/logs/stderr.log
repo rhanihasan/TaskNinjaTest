@@ -1,0 +1,2 @@
+usage: nmap_task.py [-h] input_file output_file
+nmap_task.py: error: unrecognized arguments: -i -o

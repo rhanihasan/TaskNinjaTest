@@ -1,0 +1,3 @@
+shodan
+requests
+python3-nmap
